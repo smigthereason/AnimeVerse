@@ -108,7 +108,7 @@ header .icons #menu-bars{
     }
 }
 
-@media(min-width:768px){
+@media(max-width:768px){
     header .icons #menu-bars{
         display: inline-block;
     }
@@ -118,8 +118,9 @@ header .icons #menu-bars{
         right: 0;
         left: 0;
         background: var(--black);
-        border-top: .1rem solid rgba(0,0,0,0.1);
+        border-top: .1rem solid rgba(0,0,0,0.2);
         padding: 1rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     }
     header .navbar a{
         display: block;
@@ -127,5 +128,10 @@ header .icons #menu-bars{
         margin: 1rem;
         font-size: 2rem;
         background: var(--gold);
+    }
+}
+@media(max-width:468px){
+    html{
+        font-size: 50%;
     }
 }
