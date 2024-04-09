@@ -15,7 +15,7 @@
     outline: none;
     border: none;
     text-transform: capitalize;
-    transition: all .2s linear;
+    transition: all .2s  ease-in-out;
 }
 
 html{
@@ -39,6 +39,32 @@ header{
 }
 
 header .logo{
-    background-image: url(./Assets/logo.png);
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+header .logo img{
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
 }
 
+header .logo i{
+    color: #fff;
+}
+
+header .logo a{
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    color: #fff;
+}
+
+header .navbar a.active,
+header .navbar a:hover{
+    color: #fff;
+    background:var(--blue);
+ }
