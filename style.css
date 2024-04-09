@@ -107,6 +107,8 @@ header .icons #menu-bars{
     display: flex;
     align-items: center;
     background-size: center;
+    justify-content: flex-end;
+    padding: 2rem 9%;
  }
 
 
