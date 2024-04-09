@@ -98,6 +98,33 @@ header .icons #menu-bars{
     display: none;
 }
 
+.home{
+    padding:0;
+ }
+
+ .home .box{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-size: center;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* media query */
 @media(max-width: 991px){
     html{
@@ -121,6 +148,10 @@ header .icons #menu-bars{
         border-top: .1rem solid rgba(0,0,0,0.2);
         padding: 1rem;
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    
+    header .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); 
     }
     header .navbar a{
         display: block;
