@@ -16,6 +16,7 @@
     border: none;
     text-transform: capitalize;
     transition: all .2s  ease-in-out;
+    color: beige;
 }
 
 html{
@@ -184,6 +185,26 @@ header .icons #menu-bars{
     text-align: center;
 }
 .anime .content .p{
+    font-size: 1.2rem;
+    color: beige;
+    text-decoration: none;
+}
+
+.action{
+    padding: 5rem;
+}
+.action .box{
+    width: 299px;
+    height: 168px;
+}
+
+.action .content h3{
+    font-size: 1.7rem;
+    color: beige;
+    text-transform: uppercase;
+    text-align: center;
+}
+.action .content .p{
     font-size: 1.2rem;
     color: beige;
     text-decoration: none;
