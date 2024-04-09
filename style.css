@@ -177,6 +177,18 @@ header .icons #menu-bars{
     height: 168px;
 }
 
+.anime .content h3{
+    font-size: 1.7rem;
+    color: beige;
+    text-transform: uppercase;
+    text-align: center;
+}
+.anime .content .p{
+    font-size: 1.2rem;
+    color: beige;
+    text-decoration: none;
+}
+
 
 
 
