@@ -3,7 +3,7 @@
 :root {
     --gold:#9c7945;
     --black:#000000;
-    --light-color:#181818;
+    --light-color:#252525;
     --box-shadow: 0.5rem 1.5rem rgba(0,0,0,0.1);
 }
 * {
@@ -21,7 +21,7 @@
 
 html{
     font-size: 62.5%;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     scroll-padding-top: 5.5rem;
 }
 
@@ -128,7 +128,58 @@ header .icons #menu-bars{
     display: none;
 }
 
-.home{
+#anime-list {
+    padding: 5rem;
+}
+
+.anime-list-container {
+    display: flex;
+    flex-wrap: nowrap; /* Ensure items don't wrap to the next line */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding: 5rem;
+}
+
+#anime-list div {
+    flex: 0 0 auto; /* Allow items to shrink and grow as needed */
+    max-width: 300px;
+    margin: 10px; 
+    padding: 20px; 
+    background: rgb(156,121,69);
+background: linear-gradient(351deg, rgba(156,121,69,1) 0%, rgba(117,91,52,1) 22%);
+    text-align: center; 
+    position: relative;
+    top: 0;
+    border: 0;
+    font-size: x-large;
+    font-weight: 800;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease; /* Added transition for transform property */
+}
+
+#anime-list div:hover {
+    transform: scale(1.1); /* Scale the div on hover */
+}
+
+#anime-list div h2 {
+    font-size: 1.5rem;
+    color: beige;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#anime-list div p {
+    font-size: 1.2rem;
+    color: beige;
+    text-decoration: none;
+}
+
+#anime-list div img {
+    width: 250px;
+    height: 250px;
+}
+
+/* .home{
     padding:0;
  }
 
@@ -167,7 +218,7 @@ header .icons #menu-bars{
     color: beige;
     font-size: 1.5rem;
     padding: 1rem 0;
-}
+} */
 
 .anime{
     padding: 5rem;
