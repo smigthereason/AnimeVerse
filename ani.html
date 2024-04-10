@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=m, initial-scale=1.0" />
     <title>AnimeVerse</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
     <!-- Header section start -->
@@ -13,22 +17,38 @@
         ><img src="./Assets/av-high.png" alt="Logo" />AnimeVerse</a
       >
       <nav class="navbar">
-        <a class="active" href="#home">Home</a>
-        <a class="active" href="#anime">Anime</a>
-        <a class="active" href="#categories">Categories</a>
-        <a class="active" href="#contact">Contact</a>
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Search" />
+          <button id="search-btn">
+            <i class="fa fa-search" aria-hidden="true" id="search-icon"></i>
+          </button>
+        </div>
       </nav>
-      <!-- <div class="icons">
-        <i class="fas fa-bars" id="menu-bars"></i>
-        <i class="fas fa-search" id="search-icon"></i>
-        <a href="#" class="fas fa-heart"></a>
-      </div> -->
+
+      <div class="icons">
+        <div class="dropdown">
+          <button class="dropbtn" onclick="click()">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </button>
+          <div class="dropdown-content">
+            <a class="active" href="#home">Home</a>
+            <a class="active" href="#anime">Manga</a>
+            <a class="active" href="#categories">Categories</a>
+            <a class="active" href="#contact">Community</a>
+          </div>
+        </div>
+      </div>
     </header>
 
     <section class="animelist">
-        <h2>Animation</h2>
-        <div id="anime-list" class="anime-list-container"></div>
-        <a href="#" class="btn">Download</a>
+      <h2>Animation</h2>
+      <div id="anime-list" class="anime-list-container"></div>
+      <button id="scroll-left-btn">
+        <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+      </button>
+      <button id="scroll-right-btn">
+        <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+      </button>
     </section>
 
     <!-- Home Section -->
@@ -36,7 +56,6 @@
     <section class="home" id="home">
       <div class="swiper home-slider">
         <div class="swiper-wrapper">
-
           <!-- <div class="swiper-slide"> 
             <div class="box" style="background-image: url() no-repeat" ;>
               <div class="content">
@@ -72,7 +91,6 @@
       <h1 class="heading">Anime</h1>
       <div class="swiper anime-slider">
         <div class="swiper-wrapper">
-
           <!-- <div class="swiper-slide">
             <div class="box" style="background: url() no-repeat">
               <div class="content">
@@ -142,7 +160,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -153,7 +170,6 @@
       <h1 class="heading">Popular on Action</h1>
       <div class="swiper anime-slider">
         <div class="swiper-wrapper">
-
           <div class="swiper-slide">
             <div class="box" style="background: url() no-repeat">
               <div class="content">
@@ -183,7 +199,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="swiper-slide">
             <div class="box" style="background: url() no-repeat">
               <div class="content">
@@ -193,8 +209,6 @@
               </div>
             </div>
           </div>
-         
-
         </div>
       </div>
     </section>

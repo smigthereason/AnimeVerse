@@ -27,7 +27,7 @@ html{
 
 
 section{
-    padding: 2rem 9%;
+    padding: 2rem;
 }
  section:nth-child(even){
     background: var(--light-color);
@@ -60,18 +60,17 @@ header{
     left: 0;
     right: 0;
     background: var(--black);
-    padding: 1rem 7%;
+    padding: 1rem ;
     display: flex;
     align-items:center;
     justify-content: space-between;
     z-index: 10000;
-    box-shadow: var(--box-shadow);
 }
 
 header .logo{
     color: #9c7945;
     font-size: 2.5rem;
-    font-weight: bolder;
+    font-weight: 900;
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -102,20 +101,18 @@ header .navbar a.active,
 header .navbar a:hover{
      color: #9c7945;
 }
-
-
 header .icons i,
 header .icons a{
     cursor: pointer;
     margin-right: .5rem;
-    height: 4.5rem;
-    line-height: 4.5rem;
-    width: 4.5rem;
-    text-align: center;
-    font-size: 1.7rem;
+    font-size: 2rem;
     color: #9c7945;
     border-radius: 50%;
-    background: var(--gold);
+     /* height: 4.5rem; */
+    line-height: 4.5rem;
+    width: auto;
+    text-align: center;
+    
 }
 header .icons i:hover
 header .icons a:hover{
@@ -128,6 +125,79 @@ header .icons #menu-bars{
     display: none;
 }
 
+.search-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#search-input {
+    width: 300px;
+    padding: 5px;
+    font-size: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#search-btn {
+    padding: 10px 20px;
+    font-size: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#search-btn:hover {
+    background-color:  #9c7945;
+}
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown button */
+.dropbtn {
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    position: absolute;
+    font-size: small;
+    background-color: #3d3939;
+    z-index: 1;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius:15px;
+    left: -120px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 5px 10px; 
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+
+
 #anime-list {
     padding: 5rem;
 }
@@ -135,7 +205,7 @@ header .icons #menu-bars{
 .anime-list-container {
     display: flex;
     flex-wrap: nowrap; /* Ensure items don't wrap to the next line */
-    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-x: hidden; /* Enable horizontal scrolling */
     padding: 5rem;
 }
 
@@ -145,7 +215,7 @@ header .icons #menu-bars{
     margin: 10px; 
     padding: 20px; 
     background: rgb(156,121,69);
-background: linear-gradient(351deg, rgba(156,121,69,1) 0%, rgba(117,91,52,1) 22%);
+    background: linear-gradient(351deg, rgba(156,121,69,1) 0%, rgba(117,91,52,1) 22%);
     text-align: center; 
     position: relative;
     top: 0;
@@ -178,6 +248,30 @@ background: linear-gradient(351deg, rgba(156,121,69,1) 0%, rgba(117,91,52,1) 22%
     width: 250px;
     height: 250px;
 }
+#scroll-left-btn,
+#scroll-right-btn {
+    background-color: transparent;
+    border: none;
+    /* color: #333; */
+    cursor: pointer;
+    padding: 10px;
+    font-weight: bolder;
+}
+
+#scroll-left-btn:hover,
+#scroll-right-btn:hover {
+    background-color: #9c7945;
+}
+
+#scroll-left-btn i,
+#scroll-right-btn i {
+    font-size: 40px;
+}
+#scroll-right-btn{
+    position: relative;
+    left: 1200px;
+} 
+
 
 /* .home{
     padding:0;

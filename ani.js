@@ -43,61 +43,57 @@ const apiUrl = `https://api.jikan.moe/v4/anime?start_date=2019-01-01&end_date=${
     fetchAnime();
 });
 
+document.addEventListener("click", function (event) {
+    const dropdown = document.querySelector(".dropdown-content");
+    const icons = document.querySelector(".icons");
+
+    if (!icons.contains(event.target)) {
+      dropdown.style.display = "none";
+    }
+  });
+  
+    const animeList = document.getElementById("anime-list");
+    const scrollAmount = 400; // Adjust this value based on the width of your items
+    const scrollDelay = 3000; // Adjust this value for the delay between scrolls (in milliseconds)
+
+    let currentPosition = 0;
+
+    function scrollAnimeList() {
+        const animation = setInterval(function () {
+            currentPosition += scrollAmount;
+            animeList.scroll({
+                left: currentPosition,
+                behavior: "smooth",
+            });
+
+            if (currentPosition >= animeList.scrollWidth - animeList.clientWidth) {
+                currentPosition = 0;
+                clearInterval(animation);
+                setTimeout(scrollAnimeList, scrollDelay);
+            }
+        }, scrollDelay);
+    }
+
+    setTimeout(scrollAnimeList, scrollDelay);
 
     
-
-    menu.onclick = () => {
-      menu.classList.toggle("fa-time");
-      navbar.classList.toggle("active");
-    };
+        const scrollLeftBtn = document.getElementById("scroll-left-btn");
+        const scrollRightBtn = document.getElementById("scroll-right-btn");
+        const scrollStep = 300; // Adjust this value based on the width of your items
     
-    var swiper = new Swiper(".home-slider", {
-      spaceBetween: 30,
-      centeredSlides: true,
-      autoplay: {
-        delay: 7500,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      loop: true,
-    });
+        scrollLeftBtn.addEventListener("click", function () {
+            animeList.scrollBy({
+                left: -scrollStep,
+                behavior: "smooth",
+            });
+        });
     
-    var swiper = new Swiper(".anime-slider", {
-      slidesPerView: 4,
-      spaceBetween: 30,
-      centeredSlides: true,
-      autoplay: {
-        delay: 4500,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      loop: true,
-    });
-    
-    var swiper = new Swiper(".action-slider", {
-      slidesPerView: 4,
-      spaceBetween: 30,
-      centeredSlides: true,
-      autoplay: {
-        delay: 4500,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      loop: true,
-    });
-    
-
-
-// export{};
+        scrollRightBtn.addEventListener("click", function () {
+            animeList.scrollBy({
+                left: scrollStep,
+                behavior: "smooth",
+            });
+        });
 
 
 
