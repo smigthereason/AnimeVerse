@@ -28,6 +28,7 @@ html {
 section {
   padding: 2rem;
   background: #b7ada2;
+  height: 720px;
 }
 section:nth-child(even) {
   background: var(--light-color);
@@ -316,6 +317,7 @@ header .icons #menu-bars {
   position: relative;
   display: flex;
   bottom: 250px;
+  border-radius: 50%;
 }
 #scroll-right-btn {
   background-color: transparent;
@@ -327,6 +329,7 @@ header .icons #menu-bars {
   display: flex;
   bottom: 300px;
   left: 1280px;
+  border-radius: 50%;
 }
 
 #scroll-left-btn:hover,
@@ -340,26 +343,30 @@ header .icons #menu-bars {
 }
 
 .Manga {
-    position: absolute;
-    top: 850px;
-    left: 50%;
-    transform: translate(-50%);
-    padding: 5px;
-    z-index: 1;
-    text-align: center;
-    color: var(--gold);
-    font-size: 4rem;
-    font-weight: bolder;
-    overflow-x: hidden;
-  }
+  position: absolute;
+  top: 740px;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 5px;
+  z-index: 1;
+  text-align: center;
+  color: var(--gold);
+  font-size: 4rem;
+  font-weight: bolder;
+  overflow-x: hidden;
+  text-transform: uppercase;
+}
 #manga-list {
   margin: 50px;
   position: relative;
   display: flex;
-  top: 70px;
   overflow-x: hidden; /* Allow horizontal scrolling */
   scrollbar-width: none; /* Hide scrollbar for a cleaner look */
   -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+}
+#manga-list .star-container {
+  position: relative;
+  display: contents;
 }
 
 #manga-list::-webkit-scrollbar {
@@ -374,26 +381,26 @@ header .icons #menu-bars {
 }
 
 #manga-list div {
-    flex: 0 0 auto; /* Allow items to shrink and grow as needed */
-    width: 300px;
-    margin: 10px;
-    padding: 20px;
-    background: rgb(156, 121, 69);
-    background: linear-gradient(
-      351deg,
-      rgba(156, 121, 69, 1) 0%,
-      rgba(117, 91, 52, 1) 22%
-    );
-    text-align: center;
-    position: relative;
-    top: 0;
-    border: 0;
-    font-size: x-large;
-    font-weight: 800;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease; /* Added transition for transform property */
-    overflow: hidden;
+  flex: 0 0 auto; /* Allow items to shrink and grow as needed */
+  width: 300px;
+  margin: 10px;
+  padding: 20px;
+  background: rgb(156, 121, 69);
+  background: linear-gradient(
+    351deg,
+    rgba(156, 121, 69, 1) 0%,
+    rgba(117, 91, 52, 1) 22%
+  );
+  text-align: center;
+  position: relative;
+  top: 0;
+  border: 0;
+  font-size: x-large;
+  font-weight: 800;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease; /* Added transition for transform property */
+  overflow: hidden;
 }
 
 #manga-list div:hover {
@@ -401,9 +408,9 @@ header .icons #menu-bars {
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3); /* Add a more pronounced shadow */
 }
 #manga-list div img {
-    width: 250px;
-    height: 350px;
-  }
+  width: 250px;
+  height: 350px;
+}
 
 #manga-list div h2 {
   font-size: 1.3rem;
@@ -412,38 +419,79 @@ header .icons #menu-bars {
   text-align: center;
   font-weight: bolder;
 }
-#left-btn {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    font-weight: bolder;
-    position: relative;
-    display: flex;
-    bottom: 250px;
-  }
-  #right-btn {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    font-weight: bolder;
-    position: relative;
-    display: flex;
-    bottom: 300px;
-    left: 1280px;
-  }
-  
-  #left-btn:hover,
-  #right-btn:hover {
-    background-color: #9c7945;
-  }
-  
-  #left-btn i,
-  #right-btn i {
-    font-size: 40px;
-  }
+.read-now-btn {
+  text-transform: uppercase;
+  background: rgb(97, 69, 27);
+  color: beige;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  position: relative;
+  display: flex;
+  top: 7px;
+  width: 100%;
+  font-size: x-large;
+}
 
+#left-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-weight: bolder;
+  position: relative;
+  display: flex;
+  bottom: 400px;
+  border-radius: 50%;
+}
+#right-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-weight: bolder;
+  position: relative;
+  display: flex;
+  bottom: 460px;
+  left: 1280px;
+  border-radius: 50%;
+}
+
+#left-btn:hover,
+#right-btn:hover {
+  background-color: #9c7945;
+}
+
+#left-btn i,
+#right-btn i {
+  font-size: 40px;
+}
+
+.Category {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+}
+
+.Category li {
+  background-color: #9c7945;
+  padding: 20px;
+  border-radius: 5px;
+  font-size: medium;
+  transition: 0.3s;
+  &:hover {
+    background-color: #805e36;
+  }
+  font-weight: bolder;
+}
+
+.Category li a {
+  text-decoration: none;  
+  color: #333;
+}
 
 footer {
   width: 100%;

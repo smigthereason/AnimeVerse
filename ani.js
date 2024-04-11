@@ -45,7 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
       scoreElement.textContent = anime.score;
       animeItem.appendChild(scoreElement);
 
-
       // Create a "Read More" button
       const readMoreButton = document.createElement("button");
       readMoreButton.textContent = "Read More";
@@ -71,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
             fullSynopsisCard.remove();
             setTimeout(scrollAnimeList, resumeDelay);
           }
-         
         });
       });
 
@@ -152,12 +150,14 @@ scrollRightBtn.addEventListener("click", function () {
   setTimeout(scrollAnimeList, resumeDelay);
 });
 
-// Manga Section
-
+//Manga Section
 const mangaListElement = document.getElementById("manga-list");
-const producerId = 17; 
+const studioId = 43;
+const awardWinningGenreId = 46; // Genre ID for award-winning manga
 const currentYear = new Date().getFullYear();
-const apiUrl = `https://api.jikan.moe/v4/manga?start_date=2012-01-01&end_date=${currentYear + 4}-01-01&producer=${producerId}`;
+const apiUrl = `https://api.jikan.moe/v4/manga?start_date=2012-01-01&end_date=${
+  currentYear + 4
+}-01-01&producer=${studioId}&genre=${awardWinningGenreId}`;
 
 fetchManga();
 
@@ -172,54 +172,65 @@ async function fetchManga() {
 }
 
 function displayManga(mangas) {
-  mangaListElement.textContent = ""; // Clear existing manga by removing all child nodes
-  mangas.forEach((manga) => {
-    const mangaItem = document.createElement("div");
-
-    const imageElement = document.createElement("img");
-    const imageUrl = manga.images.jpg.image_url;
-    imageElement.src = imageUrl;
-    imageElement.alt = manga.title;
-    mangaItem.appendChild(imageElement);
-
-    const titleElement = document.createElement("h2");
-    titleElement.textContent = manga.title;
-    mangaItem.appendChild(titleElement);
-
-    const starContainer = document.createElement("div");
-    starContainer.classList.add("star-container");
-    mangaItem.appendChild(starContainer);
-
-    // Calculate the number of stars based on the score (assuming the score is out of 10)
-    const score = manga.score;
-    const numStars = Math.round(score / 2); // Assuming each star represents 0.5 points
-
-    for (let i = 0; i < numStars; i++) {
-      const starIcon = document.createElement("i");
-      starIcon.classList.add("fa", "fa-star");
-      starIcon.setAttribute("aria-hidden", "true");
-      starContainer.appendChild(starIcon);
-    }
-
-    mangaListElement.appendChild(mangaItem);
-  });
-// Add event listeners to scroll buttons
-const scrollLeftBtn = document.getElementById("left-btn");
-const scrollRightBtn = document.getElementById("right-btn");
-const scrollStep = 300; // Adjust this value based on the width of your items
-
-scrollLeftBtn.addEventListener("click", function () {
-  mangaListElement.scrollBy({
-    left: -scrollStep,
-    behavior: "smooth",
-  });
-});
-
-scrollRightBtn.addEventListener("click", function () {
-  mangaListElement.scrollBy({
-    left: scrollStep,
-    behavior: "smooth",
-  });
-});
-}
-
+    mangaListElement.textContent = ""; // Clear existing manga by removing all child nodes
+  
+    // Filter mangas based on title length (max 25 characters) and score (3 and above)
+    const filteredMangas = mangas.filter((manga) => manga.title.length <= 25 && manga.score >= 3);
+  
+    filteredMangas.forEach((manga) => {
+      const mangaItem = document.createElement("div");
+  
+      const imageElement = document.createElement("img");
+      const imageUrl = manga.images.jpg.image_url;
+      imageElement.src = imageUrl;
+      imageElement.alt = manga.title;
+      mangaItem.appendChild(imageElement);
+  
+      const titleElement = document.createElement("h2");
+      titleElement.textContent = manga.title;
+      mangaItem.appendChild(titleElement);
+  
+      const starContainer = document.createElement("div");
+      starContainer.classList.add("star-container");
+      mangaItem.appendChild(starContainer);
+  
+      const readNowButton = document.createElement("button");
+      readNowButton.textContent = "Read Now";
+      readNowButton.classList.add("read-now-btn");
+      mangaItem.appendChild(readNowButton);
+  
+      // Calculate the number of stars based on the score (assuming the score is out of 10)
+      const score = manga.score;
+      const numStars = Math.round(score / 2); // Assuming each star represents 0.5 points
+  
+      for (let i = 0; i < numStars; i++) {
+        const starIcon = document.createElement("i");
+        starIcon.classList.add("fa", "fa-star");
+        starIcon.setAttribute("aria-hidden", "true");
+        starContainer.appendChild(starIcon);
+      }
+  
+      mangaListElement.appendChild(mangaItem);
+    });
+  
+    // Add event listeners to scroll buttons (assuming you already have buttons with IDs left-btn and right-btn in your HTML)
+    const scrollLeftBtn = document.getElementById("left-btn");
+    const scrollRightBtn = document.getElementById("right-btn");
+    const scrollStep = 300; // Adjust this value based on the width of your items
+  
+    scrollLeftBtn.addEventListener("click", function () {
+      mangaListElement.scrollBy({
+        left: -scrollStep,
+        behavior: "smooth",
+      });
+    });
+  
+    scrollRightBtn.addEventListener("click", function () {
+      mangaListElement.scrollBy({
+        left: scrollStep,
+        behavior: "smooth",
+      });
+    });
+  }
+  
+  
