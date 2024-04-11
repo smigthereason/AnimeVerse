@@ -6,6 +6,9 @@
   --light-color: #252525;
   --box-shadow: 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
 }
+
+/* BODY STYLING */
+
 * {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -54,6 +57,8 @@ section:nth-child(even) {
   background: var(--black);
 }
 
+/* HEADER SECTION */
+
 header {
   position: fixed;
   top: 0;
@@ -92,6 +97,8 @@ header .logo a {
   color: #9c7945;
   text-decoration: none;
 }
+
+/* NAVBAR SECTION */
 
 header.navbar a {
   color: #9c7945;
@@ -194,6 +201,8 @@ header .icons #menu-bars {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+/* HOME SECTION */
 
 .editor {
   position: absolute;
@@ -339,6 +348,8 @@ header .icons #menu-bars {
 #scroll-right-btn i {
   font-size: 40px;
 }
+
+/* MANGA SECTION */
 
 .Manga {
   position: absolute;
@@ -545,7 +556,7 @@ header .icons #menu-bars {
   position: relative;
   display: flex;
   text-align: center;
-  margin: 15px 0px 0px 520px;
+  margin: 0px 0px 0px 520px;
   top: 57px;
   font-weight: bolder;
   font-size: 3rem;
@@ -557,7 +568,7 @@ header .icons #menu-bars {
   height: 150px;
   position: relative;
   display: flex;
-  margin: -25px 0 0 320px;
+  margin: -45px 0 0 320px;
 }
 
 .carousel__item--selected {
