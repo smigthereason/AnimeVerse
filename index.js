@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function displayAnime(animes) {
-    animeListElement.textContent = ""; // Clear existing anime by removing all child nodes
+    animeListElement.textContent = ""; 
     animes.forEach((anime) => {
       const animeItem = document.createElement("div");
 
@@ -46,14 +46,14 @@ document.addEventListener("DOMContentLoaded", function () {
       scoreElement.textContent = anime.score;
       animeItem.appendChild(scoreElement);
 
-      // Create a "Read More" button
+      // Creates a "Read More" button
       const readMoreButton = document.createElement("button");
       readMoreButton.textContent = "Read More";
       readMoreButton.classList.add("read-more-btn");
       animeItem.appendChild(readMoreButton);
 
       readMoreButton.addEventListener("click", (event) => {
-        event.stopPropagation(); // Prevent event propagation
+        event.stopPropagation();
         clearInterval(animationInterval);
         const fullSynopsisCard = document.createElement("div");
         fullSynopsisCard.classList.add("synopsis-card");
@@ -87,19 +87,19 @@ document.addEventListener("click", function (event) {
 
   if (menuBars.contains(event.target)) {
     if (dropdown.style.display === "block") {
-      dropdown.style.display = "none"; // Hide dropdown if already open
+      dropdown.style.display = "none"; 
     } else {
-      dropdown.style.display = "block"; // Show dropdown if closed
+      dropdown.style.display = "block"; 
     }
   } else {
-    dropdown.style.display = "none"; // Hide dropdown if click is outside menu bars
+    dropdown.style.display = "none"; 
   }
 });
 
 const animeList = document.getElementById("anime-list");
-const scrollAmount = 800; // Adjust this value based on the width of your items
-const scrollDelay = 3500; // Adjust this value for the delay between scrolls (in milliseconds)
-const resumeDelay = 3000; // Adjust this value for the delay before automatic scrolling resumes (in milliseconds)
+const scrollAmount = 800; 
+const scrollDelay = 3500; 
+const resumeDelay = 3000; 
 
 let currentPosition = 0;
 let animationInterval;
@@ -124,10 +124,10 @@ scrollAnimeList();
 // Pause scrolling animation and resume after delay when scroll buttons are clicked
 const scrollLeftBtn = document.getElementById("scroll-left-btn");
 const scrollRightBtn = document.getElementById("scroll-right-btn");
-const scrollStep = 300; // Adjust this value based on the width of your items
+const scrollStep = 300; 
 
 scrollLeftBtn.addEventListener("click", function () {
-  clearInterval(animationInterval); // Pause animation
+  clearInterval(animationInterval); 
   const scrollLeftPosition = animeList.scrollLeft - scrollStep;
   animeList.scroll({
     left: scrollLeftPosition,
@@ -140,7 +140,7 @@ scrollLeftBtn.addEventListener("click", function () {
 });
 
 scrollRightBtn.addEventListener("click", function () {
-  clearInterval(animationInterval); // Pause animation
+  clearInterval(animationInterval); 
   const scrollRightPosition = animeList.scrollLeft + scrollStep;
   animeList.scroll({
     left: scrollRightPosition,
@@ -155,7 +155,7 @@ scrollRightBtn.addEventListener("click", function () {
 //Manga Section
 const mangaListElement = document.getElementById("manga-list");
 const studioId = 43;
-const awardWinningGenreId = 46; // Genre ID for award-winning manga
+const awardWinningGenreId = 46; 
 const currentYear = new Date().getFullYear();
 const apiUrl = `https://api.jikan.moe/v4/manga?start_date=2012-01-01&end_date=${
   currentYear + 4
@@ -174,7 +174,7 @@ async function fetchManga() {
 }
 
 function displayManga(mangas) {
-    mangaListElement.textContent = ""; // Clear existing manga by removing all child nodes
+    mangaListElement.textContent = ""; 
   
     // Filter mangas based on title length (max 25 characters) and score (3 and above)
     const filteredMangas = mangas.filter((manga) => manga.title.length <= 25 && manga.score >= 3);
@@ -201,9 +201,9 @@ function displayManga(mangas) {
       readNowButton.classList.add("read-now-btn");
       mangaItem.appendChild(readNowButton);
   
-      // Calculate the number of stars based on the score (assuming the score is out of 10)
+      // Calculate the number of stars based on the score 
       const score = manga.score;
-      const numStars = Math.round(score / 2); // Assuming each star represents 0.5 points
+      const numStars = Math.round(score / 2); 
   
       for (let i = 0; i < numStars; i++) {
         const starIcon = document.createElement("i");
@@ -215,10 +215,10 @@ function displayManga(mangas) {
       mangaListElement.appendChild(mangaItem);
     });
   
-    // Add event listeners to scroll buttons (assuming you already have buttons with IDs left-btn and right-btn in your HTML)
+    // Add event listeners to scroll buttons 
     const scrollLeftBtn = document.getElementById("left-btn");
     const scrollRightBtn = document.getElementById("right-btn");
-    const scrollStep = 300; // Adjust this value based on the width of your items
+    const scrollStep = 300; 
   
     scrollLeftBtn.addEventListener("click", function () {
       mangaListElement.scrollBy({
@@ -267,7 +267,7 @@ function displayManga(mangas) {
     link.addEventListener('click', function(e) {
       e.preventDefault();
       const targetId = this.getAttribute('href');
-      const duration = 1000; // Adjust the duration as needed
+      const duration = 1000; 
       smoothScroll(targetId, duration);
     });
   });
@@ -291,7 +291,7 @@ function displayManga(mangas) {
   
     buttons.forEach((button, i) => {
       button.addEventListener("click", () => {
-        // un-select all the items
+        
         items.forEach((item) =>
           item.classList.remove("carousel__item--selected")
         );
@@ -304,7 +304,7 @@ function displayManga(mangas) {
       });
     });
   
-    // Select the first item on page load
+    
     items[0].classList.add("carousel__item--selected");
     buttons[0].classList.add("carousel__button--selected");
   });
