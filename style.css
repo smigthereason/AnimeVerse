@@ -474,6 +474,9 @@ header .icons #menu-bars {
   flex-wrap: wrap;
   gap: 10px;
   list-style: none;
+  position: relative;
+  align-items: center;
+  justify-content: center;
 }
 
 .Category li {
@@ -489,8 +492,12 @@ header .icons #menu-bars {
 }
 
 .Category li a {
-  text-decoration: none;  
+  text-decoration: none;
   color: #333;
+  transition: 0.3s;
+  &:hover {
+    color: beige;
+  }
 }
 
 footer {
