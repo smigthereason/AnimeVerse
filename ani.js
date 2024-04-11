@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const animeListElement = document.getElementById("anime-list");
   const studioId = 569;
   const currentYear = new Date().getFullYear();
-  const apiUrl = `https://api.jikan.moe/v4/anime?start_date=2019-01-01&end_date=${
-    currentYear + 1
+  const apiUrl = `https://api.jikan.moe/v4/anime?start_date=2020-01-01&end_date=${
+    currentYear + 4
   }-01-01&producer=${studioId}`;
 
   fetchAnime();
@@ -33,80 +33,89 @@ document.addEventListener("DOMContentLoaded", function () {
       titleElement.textContent = anime.title;
       animeItem.appendChild(titleElement);
 
-      const synopsisElement = document.createElement('p');
+      const synopsisElement = document.createElement("p");
       const shortSynopsis =
-          anime.synopsis.length > 0 ? anime.synopsis.slice(0, 50) + '...' : anime.synopsis;
+        anime.synopsis.length > 0
+          ? anime.synopsis.slice(0, 50) + "..."
+          : anime.synopsis;
       synopsisElement.textContent = shortSynopsis;
       animeItem.appendChild(synopsisElement);
 
+      const scoreElement = document.createElement("span");
+      scoreElement.textContent = anime.score;
+      animeItem.appendChild(scoreElement);
+
+
       // Create a "Read More" button
-      const readMoreButton = document.createElement('button');
-      readMoreButton.textContent = 'Read More';
-      readMoreButton.classList.add('read-more-btn');
+      const readMoreButton = document.createElement("button");
+      readMoreButton.textContent = "Read More";
+      readMoreButton.classList.add("read-more-btn");
       animeItem.appendChild(readMoreButton);
 
-      readMoreButton.addEventListener('click', (event) => {
-          event.stopPropagation(); // Prevent event propagation
-          const fullSynopsisCard = document.createElement('div');
-          fullSynopsisCard.classList.add('synopsis-card');
+      readMoreButton.addEventListener("click", (event) => {
+        event.stopPropagation(); // Prevent event propagation
+        clearInterval(animationInterval);
+        const fullSynopsisCard = document.createElement("div");
+        fullSynopsisCard.classList.add("synopsis-card");
 
-          const fullSynopsisContent = document.createElement('p');
-          fullSynopsisContent.textContent = anime.synopsis;
-          fullSynopsisCard.appendChild(fullSynopsisContent);
+        const fullSynopsisContent = document.createElement("p");
+        fullSynopsisContent.textContent = anime.synopsis;
+        fullSynopsisCard.appendChild(fullSynopsisContent);
 
-          // Append the full synopsis card to the body
-          document.body.appendChild(fullSynopsisCard);
+        // Append the full synopsis card to the body
+        document.body.appendChild(fullSynopsisCard);
 
-          // Close the full synopsis card when clicked outside
-          document.addEventListener('click', (closeEvent) => {
-              if (!fullSynopsisCard.contains(closeEvent.target)) {
-                  fullSynopsisCard.remove();
-              }
-          });
+        // Close the full synopsis card when clicked outside
+        document.addEventListener("click", (closeEvent) => {
+          if (!fullSynopsisCard.contains(closeEvent.target)) {
+            fullSynopsisCard.remove();
+            setTimeout(scrollAnimeList, resumeDelay);
+          }
+         
+        });
       });
 
       animeListElement.appendChild(animeItem);
-  });
-}
+    });
+  }
   fetchAnime();
 });
 
 document.addEventListener("click", function (event) {
-    const dropdown = document.querySelector(".dropdown-content");
-    const menuBars = document.querySelector(".fa-bars");
+  const dropdown = document.querySelector(".dropdown-content");
+  const menuBars = document.querySelector(".fa-bars");
 
-    if (menuBars.contains(event.target)) {
-        if (dropdown.style.display === "block") {
-            dropdown.style.display = "none"; // Hide dropdown if already open
-        } else {
-            dropdown.style.display = "block"; // Show dropdown if closed
-        }
+  if (menuBars.contains(event.target)) {
+    if (dropdown.style.display === "block") {
+      dropdown.style.display = "none"; // Hide dropdown if already open
     } else {
-        dropdown.style.display = "none"; // Hide dropdown if click is outside menu bars
+      dropdown.style.display = "block"; // Show dropdown if closed
     }
+  } else {
+    dropdown.style.display = "none"; // Hide dropdown if click is outside menu bars
+  }
 });
 
-
 const animeList = document.getElementById("anime-list");
-const scrollAmount = 400; // Adjust this value based on the width of your items
-const scrollDelay = 4500; // Adjust this value for the delay between scrolls (in milliseconds)
-const resumeDelay = 5000; // Adjust this value for the delay before automatic scrolling resumes (in milliseconds)
+const scrollAmount = 800; // Adjust this value based on the width of your items
+const scrollDelay = 3500; // Adjust this value for the delay between scrolls (in milliseconds)
+const resumeDelay = 3000; // Adjust this value for the delay before automatic scrolling resumes (in milliseconds)
 
 let currentPosition = 0;
 let animationInterval;
 
 function scrollAnimeList() {
-    animationInterval = setInterval(function () {
-        currentPosition += scrollAmount;
-        animeList.scroll({
-            left: currentPosition,
-            behavior: "smooth",
-        });
+  animationInterval = setInterval(function () {
+    currentPosition += scrollAmount;
+    animeList.scroll({
+      left: currentPosition,
+      behavior: "smooth",
+    });
 
-        if (currentPosition >= animeList.scrollWidth - animeList.clientWidth) {
-            currentPosition = 0;
-        }
-    }, scrollDelay);
+    if (currentPosition >= animeList.scrollWidth - animeList.clientWidth) {
+      currentPosition = 0;
+    }
+  }, scrollDelay);
 }
 
 // Start scrolling animation
@@ -118,27 +127,99 @@ const scrollRightBtn = document.getElementById("scroll-right-btn");
 const scrollStep = 300; // Adjust this value based on the width of your items
 
 scrollLeftBtn.addEventListener("click", function () {
-    clearInterval(animationInterval); // Pause animation
-    const scrollLeftPosition = animeList.scrollLeft - scrollStep;
-    animeList.scroll({
-        left: scrollLeftPosition,
-        behavior: "smooth",
-    });
+  clearInterval(animationInterval); // Pause animation
+  const scrollLeftPosition = animeList.scrollLeft - scrollStep;
+  animeList.scroll({
+    left: scrollLeftPosition,
+    behavior: "smooth",
+  });
 
-    // Store current scroll position and resume after delay
-    currentPosition = scrollLeftPosition;
-    setTimeout(scrollAnimeList, resumeDelay);
+  // Store current scroll position and resume after delay
+  currentPosition = scrollLeftPosition;
+  setTimeout(scrollAnimeList, resumeDelay);
 });
 
 scrollRightBtn.addEventListener("click", function () {
-    clearInterval(animationInterval); // Pause animation
-    const scrollRightPosition = animeList.scrollLeft + scrollStep;
-    animeList.scroll({
-        left: scrollRightPosition,
-        behavior: "smooth",
-    });
+  clearInterval(animationInterval); // Pause animation
+  const scrollRightPosition = animeList.scrollLeft + scrollStep;
+  animeList.scroll({
+    left: scrollRightPosition,
+    behavior: "smooth",
+  });
 
-    // Store current scroll position and resume after delay
-    currentPosition = scrollRightPosition;
-    setTimeout(scrollAnimeList, resumeDelay);
+  // Store current scroll position and resume after delay
+  currentPosition = scrollRightPosition;
+  setTimeout(scrollAnimeList, resumeDelay);
 });
+
+// Manga Section
+
+const mangaListElement = document.getElementById("manga-list");
+const producerId = 17; 
+const currentYear = new Date().getFullYear();
+const apiUrl = `https://api.jikan.moe/v4/manga?start_date=2012-01-01&end_date=${currentYear + 4}-01-01&producer=${producerId}`;
+
+fetchManga();
+
+async function fetchManga() {
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    displayManga(data.data);
+  } catch (error) {
+    console.error("Error fetching manga:", error);
+  }
+}
+
+function displayManga(mangas) {
+  mangaListElement.textContent = ""; // Clear existing manga by removing all child nodes
+  mangas.forEach((manga) => {
+    const mangaItem = document.createElement("div");
+
+    const imageElement = document.createElement("img");
+    const imageUrl = manga.images.jpg.image_url;
+    imageElement.src = imageUrl;
+    imageElement.alt = manga.title;
+    mangaItem.appendChild(imageElement);
+
+    const titleElement = document.createElement("h2");
+    titleElement.textContent = manga.title;
+    mangaItem.appendChild(titleElement);
+
+    const starContainer = document.createElement("div");
+    starContainer.classList.add("star-container");
+    mangaItem.appendChild(starContainer);
+
+    // Calculate the number of stars based on the score (assuming the score is out of 10)
+    const score = manga.score;
+    const numStars = Math.round(score / 2); // Assuming each star represents 0.5 points
+
+    for (let i = 0; i < numStars; i++) {
+      const starIcon = document.createElement("i");
+      starIcon.classList.add("fa", "fa-star");
+      starIcon.setAttribute("aria-hidden", "true");
+      starContainer.appendChild(starIcon);
+    }
+
+    mangaListElement.appendChild(mangaItem);
+  });
+// Add event listeners to scroll buttons
+const scrollLeftBtn = document.getElementById("left-btn");
+const scrollRightBtn = document.getElementById("right-btn");
+const scrollStep = 300; // Adjust this value based on the width of your items
+
+scrollLeftBtn.addEventListener("click", function () {
+  mangaListElement.scrollBy({
+    left: -scrollStep,
+    behavior: "smooth",
+  });
+});
+
+scrollRightBtn.addEventListener("click", function () {
+  mangaListElement.scrollBy({
+    left: scrollStep,
+    behavior: "smooth",
+  });
+});
+}
+

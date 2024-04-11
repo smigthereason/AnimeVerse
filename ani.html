@@ -41,10 +41,10 @@
     </header>
 
     <section class="animelist">
-      <div class="editor">Editor's Pick</div>
-      <div class="title">
-        <div id="anime-list" class="anime-list-container"></div>
-      </div>
+      <div class="editor">Editor's Picks</div>
+
+      <div id="anime-list" class="anime-list-container"></div>
+
       <button id="scroll-left-btn">
         <i class="fa fa-angle-double-left" aria-hidden="true"></i>
       </button>
@@ -53,44 +53,22 @@
       </button>
     </section>
 
-    <!-- Home Section -->
+   
+    <!-- Manga section start -->
 
-    <section class="home" id="home">
-      <div class="swiper home-slider">
-        <div class="swiper-wrapper">
-          <!-- <div class="swiper-slide"> 
-            <div class="box" style="background-image: url() no-repeat" ;>
-              <div class="content">
-                <h3></h3>
-                <p></p>
-              </div>
-            </div>
-          </div>
-
-           <div class="swiper-slide">
-            <div class="box second" style="background-image: url() no-repeat" ;>
-              <div class="content">
-                <h3></h3>
-                <p></p>
-              </div>
-            </div>
-           </div> -->
-
-          <div class="swiper-slide">
-            <div class="box" style="background-image: url() no-repeat" ;>
-              <div class="content">
-                <h3></h3>
-                <p></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <section class="mangalist">
+      <div class="Manga">Manga List</div>
+      <div id="manga-list" class="manga-list-container"></div>
+      <button id="left-btn">
+        <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+      </button>
+      <button id="right-btn">
+        <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+      </button>
     </section>
 
-    <!-- anime section start -->
     <section class="anime" id="anime">
-      <h1 class="heading">Anime</h1>
+      <h1 class="heading">Categories</h1>
       <div class="swiper anime-slider">
         <div class="swiper-wrapper">
           <!-- <div class="swiper-slide">
@@ -168,52 +146,55 @@
 
     <!-- action section start -->
 
-    <section class="action" id="action">
-      <h1 class="heading">Popular on Action</h1>
-      <div class="swiper anime-slider">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="box" style="background: url() no-repeat">
-              <div class="content">
-                <h3></h3>
-                <p></p>
-                <a href="#" class="btn">Download</a>
-              </div>
-            </div>
-          </div>
+    <footer class="action" id="action">
+      <!-- <h1 class="heading">Community</h1> -->
+      <div class="row">
+        <div class="col">
+          <img src="./Assets/av-high.png" alt="logo" />
+          <p>
+            Dedicated to giving the best experience tailored just for you. <br>
+            We are here to make your experience better. <br>Join our AnimeVerse+ community to get the latest updates.
 
-          <div class="swiper-slide">
-            <div class="box" style="background: url() no-repeat">
-              <div class="content">
-                <h3></h3>
-                <p></p>
-                <a href="#" class="btn">Download</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="box" style="background: url() no-repeat">
-              <div class="content">
-                <h3></h3>
-                <p></p>
-                <a href="#" class="btn">Download</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="box" style="background: url() no-repeat">
-              <div class="content">
-                <h3></h3>
-                <p></p>
-                <a href="#" class="btn">Download</a>
-              </div>
-            </div>
+          </p>
+        </div>
+        <div class="col">
+          <h3>Office <div class="underline"><span></span></div></h3>
+          <p>Nairobi, Kenya</p>
+          <p>UpperHill, PIN 25773, Kenya</p>
+          <p class="email-id">animeverse@outlook.com</p>
+          <h4>+254 -6789998212</h4>
+        </div>
+        <div class="col">
+          <h3>Links <div class="underline"><span></span></div></h3>
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Manga</a></li>
+            <li><a href="">Categories</a></li>
+            <li><a href="">Community</a></li>
+            <li><a href="">Testimonials</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <h3>Membership <div class="underline"><span></span></div></h3>
+          <form>
+            <i class="fa fa-envelope-square" aria-hidden="true"></i>
+            <input type="email" placeholder="Enter your email Id" required />
+            <button type="submit">
+              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </button>
+          </form>
+          <div class="social-icons">
+            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+            <i class="fa fa-pinterest-square" aria-hidden="true"></i>
           </div>
         </div>
       </div>
-    </section>
+      <hr>
+      <p class="copyright"><i class="fa fa-copyright" aria-hidden="true"></i>Copyright 2024 - Animeverse</p>
+
+    </footer>
 
     <script src="ani.js"></script>
   </body>
