@@ -360,9 +360,9 @@ header .icons #menu-bars {
   margin: 50px;
   position: relative;
   display: flex;
-  overflow-x: hidden; /* Allow horizontal scrolling */
-  scrollbar-width: none; /* Hide scrollbar for a cleaner look */
-  -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+  overflow-x: hidden; 
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
 }
 #manga-list .star-container {
   position: relative;
