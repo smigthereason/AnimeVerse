@@ -1,4 +1,4 @@
-# Single Page Appliction Project
+# Single Page Application Project
 
 ## AnimeVerse
 
@@ -20,7 +20,7 @@ To get started with this project, follow these steps:
 - Vercel
 
 ## Requirements needed
-To contribute or work with this project, you need:
+To contribute or work on this project, you need:
 - Basic programming knowledge of JavaScript, HTML, and CSS.
 - Visual Studio Code or any other code editor of your choice.
 - Vercel for deployment purposes
