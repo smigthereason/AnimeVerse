@@ -1,10 +1,3 @@
-// import Swiper JS
-import Swiper from 'swiper';
-// import Swiper styles
-import 'swiper/css';
-
-const swiper = new Swiper(...);
-
 document.addEventListener("DOMContentLoaded", function () {
   const animeListElement = document.getElementById("anime-list");
   const studioId = 569;
