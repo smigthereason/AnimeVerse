@@ -469,6 +469,8 @@ header .icons #menu-bars {
   font-size: 40px;
 }
 
+/* CATEGORY SECTION */
+
 .Category {
   display: flex;
   flex-wrap: wrap;
@@ -500,6 +502,83 @@ header .icons #menu-bars {
   }
 }
 
+/* TESTIMONIALS */
+.testimonial {
+  position: absolute;
+  top: 2175px;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 5px;
+  z-index: 1;
+  text-align: center;
+  color: var(--gold);
+  font-size: 4rem;
+  font-weight: bolder;
+  overflow-x: hidden;
+  text-transform: uppercase;
+}
+#test-list {
+  margin: 50px;
+  position: relative;
+  display: flex;
+  overflow-x: hidden; 
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+
+#manga-list::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+.testimonials-container {
+  display: flex;
+  gap: 10px; /* Spacing between manga items */
+  padding: 3rem;
+  margin: 0;
+}
+
+#manga-list div {
+  flex: 0 0 auto; /* Allow items to shrink and grow as needed */
+  width: 300px;
+  margin: 10px;
+  padding: 20px;
+  background: rgb(156, 121, 69);
+  background: linear-gradient(
+    351deg,
+    rgba(156, 121, 69, 1) 0%,
+    rgba(117, 91, 52, 1) 22%
+  );
+  text-align: center;
+  position: relative;
+  top: 0;
+  border: 0;
+  font-size: x-large;
+  font-weight: 800;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease; /* Added transition for transform property */
+  overflow: hidden;
+}
+
+#manga-list div:hover {
+  transform: translateY(-10px); /* Move the div up on hover */
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3); /* Add a more pronounced shadow */
+}
+#manga-list div img {
+  width: 250px;
+  height: 350px;
+}
+
+#manga-list div h2 {
+  font-size: 1.3rem;
+  color: beige;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bolder;
+}
+
+
+/* FOOTER SECTION */
 footer {
   width: 100%;
   position: relative;
@@ -659,6 +738,8 @@ hr + p {
   header {
     padding: 1rem 2rem;
   }
+ 
+
 }
 
 @media (max-width: 768px) {
@@ -690,5 +771,8 @@ hr + p {
 @media (max-width: 468px) {
   html {
     font-size: 50%;
+  }
+  .Category {
+    display: inline-block;
   }
 }
