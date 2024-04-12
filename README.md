@@ -48,12 +48,12 @@ To contribute or work on this project, you need:
 
 
 ## API USED
-- Anime Verse API[https://api.jikan.moe/v4/anime]
+- (Anime Verse API)[https://api.jikan.moe/v4/anime]
 
 
 ## Authors
 
-- Victor Maina [https://github.com/smigthereason]
+- (Victor Maina)[https://github.com/smigthereason]
 
 
 
