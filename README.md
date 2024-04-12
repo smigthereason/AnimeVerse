@@ -26,7 +26,7 @@ To contribute or work on this project, you need:
 - Vercel for deployment purposes
 
 ## Minimum Viable Product
-- A functional and user-friendly webpage showcasing AnimeVerse’s services, content and client feedback.
+- A functional AnimeVerse Web-page.
 
 ## Key Features
 - Landing page.
